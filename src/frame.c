@@ -2703,9 +2703,11 @@ delete_frame (Lisp_Object frame, Lisp_Object force)
 #ifdef HAVE_PGTK
   if (FRAME_PGTK_P (f))
     {
-      /* Do special selection events now, in case the window gets
-	 destroyed by this deletion.  Does this run Lisp code?  */
-      swallow_events (false);
+      /* Process pending selection events before the window gets
+	 destroyed by this deletion.  Use process_special_events
+	 rather than swallow_events to avoid running timers, which
+	 can trigger reentrant frame deletion (Bug#XXXXX).  */
+      process_special_events ();
 
       pgtk_clear_frame_selections (f);
     }

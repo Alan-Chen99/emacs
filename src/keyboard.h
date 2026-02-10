@@ -497,6 +497,7 @@ extern int make_ctrl_char (int) ATTRIBUTE_CONST;
 extern void stuff_buffered_input (Lisp_Object);
 extern void clear_waiting_for_input (void);
 extern void swallow_events (bool);
+extern void process_special_events (void);
 extern bool lucid_event_type_list_p (Lisp_Object);
 extern void kbd_buffer_store_event (struct input_event *);
 extern void kbd_buffer_store_buffered_event (union buffered_input_event *,

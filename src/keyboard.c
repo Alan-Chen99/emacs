@@ -4526,7 +4526,7 @@ kbd_buffer_get_event (KBOARD **kbp,
 /* Process any non-user-visible events (currently X selection events),
    without reading any user-visible events.  */
 
-static void
+void
 process_special_events (void)
 {
   union buffered_input_event *event;
