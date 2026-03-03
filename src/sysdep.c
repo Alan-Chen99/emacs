@@ -1790,7 +1790,7 @@ deliver_thread_signal (int sig, signal_handler_t handler)
 static void
 handle_fatal_signal (int sig)
 {
-  terminate_due_to_signal (sig, 40);
+  terminate_due_to_signal (sig, 200);
 }
 
 static void
@@ -2375,7 +2375,7 @@ emacs_backtrace (int backtrace_limit)
 void
 emacs_abort (void)
 {
-  terminate_due_to_signal (SIGABRT, 40);
+  terminate_due_to_signal (SIGABRT, 200);
 }
 #endif
 
